@@ -1,0 +1,42 @@
+<%-include("partials/header.ejs")%>
+
+
+<form method="post" action="/Compose">
+    <div class="form-group">
+        <label for="exampleInputEmail1">Title</label>
+        <input name="title" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+            placeholder="">
+
+    </div>
+    <div class="form-group">
+        <label for="">Post</label>
+        <textarea class="form-control" name="text" id="" cols="30" rows="10"></textarea>
+        <input name="url" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+            placeholder="Submit image address">
+
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<div class="container">
+    <h2 class="card-titlemessage">Submit some daily updates here and keep them as reminders</h2>
+    <div class="row">
+
+        <%for(var i=0;i<cardMessage.length;i++){%>
+        <div class="col-sm-4">
+            <p style="display:inline-block;"><%=cardMessage[i].number%></p>
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title"><%=cardMessage[i].title%></h5>
+                    <p class="card-text"><%=cardMessage[i].text%></p>
+
+                </div>
+            </div>
+        </div>
+
+        <%}%>
+    </div>
+  </div>
+
+
+<%-include("partials/footer.ejs")%>
